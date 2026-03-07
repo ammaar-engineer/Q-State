@@ -2,11 +2,11 @@
 
 A lightweight React state management engine using `useSyncExternalStore` with optional localStorage caching and value transformation.
 
-# small issue
+# Small issue (FIXED)
 
 Hey i have an isssue, when you use nextjs with this library, just copy the engine code in the q-state file
 because this library had hydration issue, after you copy it, use it inside your src file, so this library can work
-well in nextjs, im sorry for that...
+well in nextjs, im sorry for that... (BUG FIXED, Q-STATE COMPATIBLE WITH NEXTJS NOW!)
 
 # Github link
 
