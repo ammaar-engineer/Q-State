@@ -4,6 +4,9 @@
   "description": "A lightweight React state management library using `useSyncExternalStore` with optional localStorage caching and value transformation.",
   "main": "dist/Q-State-Engine.js",
   "types": "src/Q-State-Engine.ts",
+  "peerDependencies": {
+    "react": ">=18.0.0"
+  },
   "files": [
     "dist",
     "src"
