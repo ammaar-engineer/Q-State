@@ -40,7 +40,6 @@ export class Q_StateEngine
 useQuantaState = <K extends keyof T>(key: K): [T[K]] => {
   useEffect(() => {
       if (!this.option?.cache && typeof window !== 'undefined') {
-        console.log('Garbage Collector running')
         localStorage.removeItem(key as string)
       }
     }, [])
