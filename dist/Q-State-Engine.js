@@ -23,7 +23,13 @@ var Q_StateEngine = /** @class */ (function () {
             _this.listener.forEach(function (cb) { return cb(); });
         };
         this.useQuantaState = function (key) {
-            var getCurr = function () {
+            (0, react_1.useEffect)(function () {
+                var _a;
+                if (!((_a = _this.option) === null || _a === void 0 ? void 0 : _a.cache) && typeof window !== 'undefined') {
+                    localStorage.removeItem(key);
+                }
+            }, []);
+            var getCurrAfterRender = function () {
                 var _a;
                 if (((_a = _this.option) === null || _a === void 0 ? void 0 : _a.cache) && typeof window !== "undefined") {
                     var getcache = localStorage.getItem(key);
@@ -42,7 +48,8 @@ var Q_StateEngine = /** @class */ (function () {
                 }
                 return _this.obj[key];
             };
-            var syncSpecificData = (0, react_1.useSyncExternalStore)(_this.subsribe, getCurr);
+            var defaultValue = null;
+            var syncSpecificData = (0, react_1.useSyncExternalStore)(_this.subsribe, function () { return getCurrAfterRender(); }, function () { return defaultValue; });
             return [syncSpecificData];
         };
         this.obj = state;
