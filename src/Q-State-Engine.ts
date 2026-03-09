@@ -1,4 +1,4 @@
-import { useSyncExternalStore } from "react"
+import { useEffect, useSyncExternalStore } from "react"
 
 interface OptionRecord {
   cache: boolean
@@ -38,6 +38,12 @@ export class Q_StateEngine
   }
 
 useQuantaState = <K extends keyof T>(key: K): [T[K]] => {
+  useEffect(() => {
+      if (!this.option?.cache && typeof window !== 'undefined') {
+        console.log('Garbage Collector running')
+        localStorage.removeItem(key as string)
+      }
+    }, [])
     const getCurrAfterRender = () => {
       if (this.option?.cache && typeof window !== "undefined") {
         const getcache = localStorage.getItem(key as string)
