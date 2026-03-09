@@ -1,6 +1,6 @@
 {
   "name": "@quanta-lib/q-state",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "A lightweight React state management library using `useSyncExternalStore` with optional localStorage caching and value transformation.",
   "main": "dist/Q-State-Engine.js",
   "types": "src/Q-State-Engine.ts",
